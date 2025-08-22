@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meine Seite</title>
+  <style>
+    /* ======= GRUNDEINSTELLUNGEN – HIER ANPASSEN ======= */
+    :root{
+      --bg:#0b0f1a;         /* Hintergrundfarbe */
+      --fg:#e5e7eb;         /* Textfarbe */
+      --muted:#9ca3af;      /* Sekundärtext */
+      --card:#111827;       /* Karten-Hintergrund */
+      --border:#1f2937;     /* Rahmenfarbe */
+      --brand:#22c55e;      /* Hauptakzent (grün) – änderbar */
+      --brand-contrast:#0b0f1a; /* Text auf Brand */
+      --radius:18px;        /* Rundungen */
+      --max:1100px;         /* max Breite */
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; /* Schriftfamilie */
+    }
+
+    /* ======= BASICS ======= */
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--font);background:var(--bg);color:var(--fg);}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 1rem}
+    a{color:inherit;text-decoration:none}
+    .btn{display:inline-block;padding:.75rem 1rem;border:1px solid var(--border);border-radius:calc(var(--radius) - 6px);background:var(--card)}
+    .btn.brand{background:var(--brand);color:var(--brand-contrast);border-color:transparent}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
+    .grid{display:grid;gap:1rem}
+    @media(min-width:720px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+
+    /* ======= NAVIGATION ======= */
+    nav{position:sticky;top:0;background:rgba(11,15,26,.8);backdrop-filter: blur(6px);border-bottom:1px solid var(--border);z-index:10}
+    nav .inner{display:flex;align-items:center;gap:1rem;padding:.7rem 0}
+    nav .brand{font-weight:700}
+    nav .spacer{flex:1}
+
+    /* ======= HERO ======= */
+    .hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--border);background: radial-gradient(80% 80% at 50% 0%, rgba(34,197,94,.12), transparent 60%)}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.8rem,4vw,3rem)}
+    .hero p{margin:.3rem 0 1.2rem;color:var(--muted);max-width:60ch}
+
+    /* ======= SEKTION: FEATURES ======= */
+    section{padding:2rem 0;border-bottom:1px solid var(--border)}
+    h2{margin:0 0 1rem;font-size:clamp(1.4rem,2.4vw,2rem)}
+
+    /* ======= GALLERY (nur Bilder/Boxen) ======= */
+    .box{aspect-ratio: 16/9; border:1px dashed var(--border);border-radius:var(--radius);display:grid;place-items:center;color:var(--muted)}
+
+    /* ======= FOOTER ======= */
+    footer{padding:2rem 0;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <!-- ======= NAVIGATION ======= -->
+  <nav>
+    <div class="wrap inner">
+      <div class="brand">Abduls Seite</div>
+      <div class="spacer"></div>
+      <a href="#about" class="muted">Über mich</a>
+      <a href="#projects" class="muted">Projekte</a>
+      <a href="#contact" class="muted">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- ======= HERO (Startbereich) ======= -->
+  <header class="hero">
+    <div class="wrap">
+      <h1>Hallo, ich bin Abdul 👋</h1>
+      <p>Medizinstudent (7. Semester, UKE), ZNA-Erfahrung & Interesse an minimalinvasiver Medizin. Hier sammle ich Notizen, Projekte und Links.</p>
+      <a class="btn brand" href="#projects">Zu meinen Projekten</a>
+      <a class="btn" href="#contact" style="margin-left:.5rem">Kontakt</a>
+    </div>
+  </header>
+
+  <!-- ======= ÜBER MICH ======= -->
+  <section id="about">
+    <div class="wrap">
+      <h2>Über mich</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3 style="margin-top:0">Kurzprofil</h3>
+          <p>Ich arbeite als Sitzwache/Werkstudent in der ZNA, helfe bei Blutentnahmen, Mobilisierung und Untersuchungen und dolmetsche Arabisch bei Bedarf.</p>
+          <ul>
+            <li>Interesse: Unfallchirurgie, interventionelle Radiologie</li>
+            <li>OSCE Vorbereitung: Innere / Nephro</li>
+            <li>Wahlfach: Minimalinvasive Medizin</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Skills</h3>
+          <ul>
+            <li>Kommunikation & Teamarbeit in der Notaufnahme</li>
+            <li>Grundlagen HTML/CSS/JS – diese Seite 🎉</li>
+            <li>Dokumentation & Logbuchführung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PROJEKTE ======= -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projekte</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3 style="margin-top:0">Checkliste Pro</h3>
+          <p class="muted">Kleine Web-App zum Aufgaben-Tracking mit Kategorien, Dark Mode und CSV-Export.</p>
+          <a class="btn" href="#">Öffnen</a>
+        </article>
+        <article class="card">
+          <h3 style="margin-top:0">Schicht-&-Skills-Logbuch</h3>
+          <p class="muted">Idee: Prozeduren/Schichten tracken und als CSV exportieren – bald als App.</p>
+          <a class="btn" href="#">Mehr</a>
+        </article>
+        <article class="card">
+          <h3 style="margin-top:0">OSCE-Notizen</h3>
+          <p class="muted">Kurzskripte und Spickzettel für Anamnese, Untersuchung & Differenzialdiagnosen.</p>
+          <a class="btn" href="#">Lesen</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= GALLERY / BILDER ODER LINKS ======= -->
+  <section id="gallery">
+    <div class="wrap">
+      <h2>Einblicke</h2>
+      <div class="grid cols-3">
+        <div class="box">Bild/Diagramm</div>
+        <div class="box">Poster</div>
+        <div class="box">Publikation</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= KONTAKT ======= -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Kontakt</h2>
+      <div class="card">
+        <p>Schreib mir gern an <a href="mailto:abdul@example.com">abdul@example.com</a> oder per LinkedIn.</p>
+        <form onsubmit="event.preventDefault(); alert('Nachricht gesendet (Demo).')">
+          <div class="grid cols-2" style="margin-bottom:.75rem">
+            <input class="card" placeholder="Dein Name" required />
+            <input class="card" type="email" placeholder="E-Mail" required />
+          </div>
+          <textarea class="card" rows="5" placeholder="Deine Nachricht…" required></textarea>
+          <div style="margin-top:.75rem">
+            <button class="btn brand" type="submit">Senden</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <small>© <span id="y"></span> Abdul – Erstellt mit einfachem HTML/CSS. <span class="muted">Passe Farben/Schrift oben in :root an.</span></small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
